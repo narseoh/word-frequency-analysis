@@ -8,8 +8,12 @@ def extract_content(url):
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
         
-        # Supprimer les éléments non pertinents (nav, menu, footer, sidebar, form, etc.)
-        for tag in soup(['nav', 'breadcrumb', 'menu', 'footer', 'sidebar', 'form']):
+        # Liste des noms de classes et IDs à exclure
+        excluded_classes = ['nav', 'breadcrumb', 'menu', 'footer', 'sidebar']
+        excluded_ids = ['form']
+        
+        # Supprimer les éléments non pertinents en fonction des classes et IDs
+        for tag in soup.find_all(True, {'class': excluded_classes, 'id': excluded_ids}):
             tag.decompose()
         
         # Extraire le texte restant
