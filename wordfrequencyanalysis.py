@@ -3,11 +3,11 @@ import requests
 from bs4 import BeautifulSoup
 from collections import Counter
 import re
+import nltk
 from nltk.corpus import stopwords
 from nltk.util import ngrams
 
 # Télécharger les stopwords en français si nécessaire
-import nltk
 nltk.download('stopwords')
 
 # Liste des stopwords français
