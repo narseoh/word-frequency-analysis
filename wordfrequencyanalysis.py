@@ -9,7 +9,7 @@ def extract_content(url):
         soup = BeautifulSoup(response.content, 'html.parser')
         
         # Supprimer les éléments non pertinents (nav, menu, footer, sidebar, form, etc.)
-        for tag in soup(['nav', 'menu', 'footer', 'sidebar', 'form']):
+        for tag in soup(['nav', 'breadcrumb', 'menu', 'footer', 'sidebar', 'form']):
             tag.decompose()
         
         # Extraire le texte restant
